@@ -1,14 +1,14 @@
     // ==UserScript==
     // @name         Vk фикс ссылок на музыку и видео
     // @namespace    vk-fix-music-and-videolinks
-    // @version      0.1
+    // @version      0.2
     // @description  Теперь при переходе в "Мою музыку" будет открываться ваш список аудио, а не список рекомендаций
     // @author       Desu
     // @match        *://vk.com/*
     // @grant        none
     // @license      GNU GPLv3
     // ==/UserScript==
-    let userId = document.getElementById("top_logout_link").getAttribute('onclick').match(/_.+[0-9]/);
+    let userId = document.getElementById("top_logout_link").getAttribute('onclick').match(/_[0-9]+/);
     userId = userId[0].substring(1);
     let musicLinksArr = document.querySelectorAll('a[href="/audios'+userId+'"]');
     for (let i = 0; i < musicLinksArr.length; i++) {
